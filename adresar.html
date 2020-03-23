@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>adresar</title>
+    <style>
+        body {
+            background-color:grey;
+        }
+        #app {
+            margin-top: 1%;
+            margin-left: 35%;
+        }
+        h2 {
+            margin-left: 32%;
+            font-size: 90px;
+            
+        }
+        .list-group-item {
+            width: 200px;
+            margin-top: 5px;
+        }
+        .inpClass {
+            border-color: brown;
+            width: 500px;
+            height: 40px;
+        }
+        .btnClass {
+            background-color: brown;
+            width: 200px;
+            height: 70px;
+            border-radius: 50%;
+            border-color: black;
+        }
+        label {
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter your details</h2>
+<div id="app">
+    <label>Name:</label>
+    <p><input class="inpClass" v-model="newContact.name"></p>
+    <label>Last name:</label>
+    <p><input class="inpClass" v-model="newContact.lastName"></p>
+    <label>Phone:</label>
+    <p><input class="inpClass" v-model="newContact.phone"></p>
+    <button class="btnClass" @click.prevent="addContact">Click me</button>
+    <div id="contacts">
+        <div class="list-group-item" v-for= "(contact, index) in filteredContacts" v-key= "index">
+            <div >{{ contact.name }}</div>
+            <div>{{ contact.lastName }}</div>
+            <div>{{ contact.phone }}</div>
+        </div>
+    </div>
+    <label>Name:</label>
+    <p><input class="inpClass" v-model="searchByName" type="text"></p>
+    <label>Last name:</label>
+    <p><input class="inpClass" v-model="searchByLastName" type="text"></p>
+    <label>Phone:</label>
+    <p><input class="inpClass" v-model="searchByPhone" type="number"></p>
+    <button class="btnClass" @click.prevent="searchContacts">Search</button>
+</div>
+
+</body>
+</html>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                newContact: {
+                    name: '',
+                    lastName: '',
+                    phone: '',
+                },
+                contacts: [],
+                searchByName: '',
+                searchByLastName: '',
+                searchByPhone: '',
+                filteredContacts: []
+            }
+        },
+        methods: {
+            addContact() {
+                if(this.newContact.name == '' || this.newContact.lastName == '' || this.newContact.phone == '') {
+                    alert('Must be more than two characters');
+                } else {
+                    this.contacts.push({
+                    name: this.newContact.name, 
+                    lastName: this.newContact.lastName,
+                    phone: this.newContact.phone
+                    })
+                    this.filteredContacts = this.contacts
+                    this.searchByName = ''
+                    this.searchByLastName = ''
+                    this.searchByPhone = ''
+                    this.newContact = {
+                        name: '',
+                        lastName: '',
+                        phone: '',
+                    }
+                }
+            },
+            searchContacts() {
+                this.filteredContacts = this.contacts.filter(contact => {
+                    let found = false;
+                    if(this.searchByName.trim()) {
+                        found |= contact.name.includes(this.searchByName)
+                    }
+                    if(this.searchByLastName.trim()) {
+                        found |= contact.lastName.includes(this.searchByLastName)
+                    }
+                    if(this.searchByPhone.trim()) {
+                        found |= contact.phone.includes(this.searchByPhone)
+                    }
+                    return found;
+                })
+                console.log(this.filteredContacts);
+            }
+        }
+    })
+
+</script>
