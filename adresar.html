@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>adresar</title>
+
     <style>
         body {
             background-color:grey;
         }
         #app {
-            margin-top: 1%;
+            margin-top: 1%;   
             margin-left: 35%;
         }
         h2 {
             margin-left: 32%;
-            font-size: 90px;
+            font-size: 90px;   
             
         }
         .list-group-item {
             width: 200px;
-            margin-top: 5px;
+            margin-top: 5px;   
         }
         .inpClass {
             border-color: brown;
             width: 500px;
             height: 40px;
-        }
+        }   
         .btnClass {
             background-color: brown;
             width: 200px;
-            height: 70px;
+            height: 70px;   
             border-radius: 50%;
             border-color: black;
         }
@@ -40,11 +42,13 @@
             font-size: 25px;
         }
     </style>
+
 </head>
 <body>
+
     <h2>Enter your details</h2>
 <div id="app">
-    <label>Name:</label>
+    <label>Name:</label>   
     <p><input class="inpClass" v-model="newContact.name"></p>
     <label>Last name:</label>
     <p><input class="inpClass" v-model="newContact.lastName"></p>
@@ -53,9 +57,7 @@
     <button class="btnClass" @click.prevent="addContact">Click me</button>
     <div id="contacts">
         <div class="list-group-item" v-for= "(contact, index) in filteredContacts" v-key= "index">
-            <div >{{ contact.name }}</div>
-            <div>{{ contact.lastName }}</div>
-            <div>{{ contact.phone }}</div>
+            <div >{{ contact.name }} {{ contact.lastName}} {{ contact.phone  }}</div>
         </div>
     </div>
     <label>Name:</label>
@@ -63,7 +65,7 @@
     <label>Last name:</label>
     <p><input class="inpClass" v-model="searchByLastName" type="text"></p>
     <label>Phone:</label>
-    <p><input class="inpClass" v-model="searchByPhone" type="number"></p>
+    <p><input class="inpClass" v-model="searchByPhone" type="number"></p>   
     <button class="btnClass" @click.prevent="searchContacts">Search</button>
 </div>
 
