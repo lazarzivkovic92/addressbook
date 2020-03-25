@@ -70,9 +70,9 @@
             <label>Name:</label>      
             <p><input class="inpClass" v-model="newContact.name"></p>
             <label>Last name:</label>
-            <p><input class="inpClass" v-model="newContact.lastName"></p>
-            <label>Phone:</label>
-            <p><input class="inpClass" v-model="newContact.phone"></p>
+            <p><input class="inpClass" v-model="newContact.lastName"></p>   
+            <label>Phone:</label>    
+            <p><input class="inpClass" v-model="newContact.phone"></p>   
             <center>
                 <button class="btnClass" @click.prevent="addContact">Click me</button>   
             </center>
@@ -86,22 +86,22 @@
             <label>Name:</label>
             <p><input class="inpClass" v-model="searchByName" type="text"></p>
             <label>Last name:</label>
-            <p><input class="inpClass" v-model="searchByLastName" type="text"></p>
+            <p><input class="inpClass" v-model="searchByLastName" type="text"></p>     
             <label>Phone:</label>   
-            <p><input class="inpClass" v-model="searchByPhone" type="number"></p>   
+            <p><input class="inpClass" v-model="searchByPhone" type="number"></p>          
             <center>
-                <button class="btnClass" @click.prevent="searchContacts">Search</button>
+                <button class="btnClass" @click.prevent="searchContacts">Search</button>     
             </center>
         </div>
     
         <center>
             <div id="all-contacts">
                 <div id="contacts">
-                    <div class="list-group-item" v-for= "(contact, index) in filteredContacts" v-key= "index">   
-                        <div >{{ contact.name }} {{ contact.lastName}} {{ contact.phone  }}</div>
+                    <div class="list-group-item" v-for= "(contact, index) in filteredContacts" v-key= "index">       
+                        <div >{{ contact.name }} {{ contact.lastName}} {{ contact.phone  }}</div>    
                     </div>
                 </div>
-            </div>
+            </div>    
        </center>
         
     </div>
@@ -120,30 +120,30 @@
                 newContact: {
                     name: '',
                     lastName: '',   
-                    phone: '',
+                    phone: '',   
                 },
                 contacts: [],
                 searchByName: '',
                 searchByLastName: '',
-                searchByPhone: '',
+                searchByPhone: '',    
                 filteredContacts: []
             }
         },
         methods: {
             addContact() {
-                if(this.newContact.name == '' || this.newContact.lastName == '' || this.newContact.phone == '') {
+                if(this.newContact.name == '' || this.newContact.lastName == '' || this.newContact.phone == '') {   
                     alert('Must be more than two characters');    
                 } else {
                     this.contacts.push({
-                    name: this.newContact.name, 
+                    name: this.newContact.name,    
                     lastName: this.newContact.lastName,
-                    phone: this.newContact.phone
+                    phone: this.newContact.phone      
                     })
                     this.filteredContacts = this.contacts
-                    this.searchByName = ''
+                    this.searchByName = ''    
                     this.searchByLastName = ''     
                     this.searchByPhone = ''
-                    this.newContact = {
+                    this.newContact = {   
                         name: '',
                         lastName: '',
                         phone: '',
@@ -151,21 +151,21 @@
                 }
             },
             searchContacts() {
-                this.filteredContacts = this.contacts.filter(contact => {
+                this.filteredContacts = this.contacts.filter(contact => {    
                     let found = false;
                     if(this.searchByName.trim()) {
-                        found |= contact.name.includes(this.searchByName)
+                        found |= contact.name.includes(this.searchByName)    
                     }      
                     if(this.searchByLastName.trim()) {    
-                        found |= contact.lastName.includes(this.searchByLastName)
+                        found |= contact.lastName.includes(this.searchByLastName)    
                     }
-                    if(this.searchByPhone.trim()) {
+                    if(this.searchByPhone.trim()) {    
                         found |= contact.phone.includes(this.searchByPhone)    
-                    }
-                    return found;
+                    }    
+                    return found;   
                 })   
                 console.log(this.filteredContacts);
-            }
+            }   
         }
     })
 
