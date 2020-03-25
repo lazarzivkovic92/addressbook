@@ -67,15 +67,17 @@
             <center>
                 <h2>Enter your details</h2>
             </center>
-            <label>Name:</label>      
-            <p><input class="inpClass" v-model="newContact.name"></p>
-            <label>Last name:</label>
-            <p><input class="inpClass" v-model="newContact.lastName"></p>   
-            <label>Phone:</label>    
-            <p><input class="inpClass" v-model="newContact.phone"></p>   
-            <center>
-                <button class="btnClass" @click.prevent="addContact">Click me</button>   
-            </center>
+            <label>Name:</label> 
+            <form  @submit.prevent="addContact">
+                <p><input class="inpClass" v-model="newContact.name"></p>   
+                <label>Last name:</label>
+                <p><input class="inpClass" v-model="newContact.lastName"></p>   
+                <label>Phone:</label>    
+                <p><input class="inpClass" v-model="newContact.phone"></p>   
+                <center>
+                    <button class="btnClass" type="submit">Click me</button>   
+                </center>
+            </form> 
         </div>
       
         
