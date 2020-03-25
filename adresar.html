@@ -9,22 +9,22 @@
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>adresar</title>
 
-    <style>
+    <style>   
         body {
-            background-color:grey;
-        }
+            background-color:grey;  
+        }  
         #back {
             width: 90%;
             margin: 0 auto;
         }
         #app {
-            margin-top: 1%;  
-              
+            margin-top: 1%;      
+                
         }
         h2 {   
             font-size: 40px; 
-            background-color: brown;
-            border-radius: 30px;
+            background-color: brown;  
+            border-radius: 30px;   
             margin-bottom: 40px;
             
         }
@@ -32,16 +32,16 @@
             margin-top: 5px;   
         }
         .inpClass {
-            border-color: brown;
+            border-color: brown;    
             width: 500px;
             height: 40px;
             border-radius: 30px;
         }   
         .btnClass {
-            background-color: brown;
+            background-color: brown;    
             width: 200px;
             height: 70px;   
-            border-radius: 50%;
+            border-radius: 50%;    
             border-color: black;
         }
         label {
@@ -50,11 +50,11 @@
         .search-wrapper-first {
             float: left;
         }
-        .search-wrapper-second {
+        .search-wrapper-second {    
             float: right;
         }
         #all-contacts {
-            background-color: red;
+            background-color: red;    
             width: 600px;
         }
     </style>
@@ -67,14 +67,14 @@
             <center>
                 <h2>Enter your details</h2>
             </center>
-            <label>Name:</label>   
+            <label>Name:</label>      
             <p><input class="inpClass" v-model="newContact.name"></p>
             <label>Last name:</label>
             <p><input class="inpClass" v-model="newContact.lastName"></p>
             <label>Phone:</label>
             <p><input class="inpClass" v-model="newContact.phone"></p>
             <center>
-                <button class="btnClass" @click.prevent="addContact">Click me</button>
+                <button class="btnClass" @click.prevent="addContact">Click me</button>   
             </center>
         </div>
       
@@ -87,7 +87,7 @@
             <p><input class="inpClass" v-model="searchByName" type="text"></p>
             <label>Last name:</label>
             <p><input class="inpClass" v-model="searchByLastName" type="text"></p>
-            <label>Phone:</label>
+            <label>Phone:</label>   
             <p><input class="inpClass" v-model="searchByPhone" type="number"></p>   
             <center>
                 <button class="btnClass" @click.prevent="searchContacts">Search</button>
@@ -97,7 +97,7 @@
         <center>
             <div id="all-contacts">
                 <div id="contacts">
-                    <div class="list-group-item" v-for= "(contact, index) in filteredContacts" v-key= "index">
+                    <div class="list-group-item" v-for= "(contact, index) in filteredContacts" v-key= "index">   
                         <div >{{ contact.name }} {{ contact.lastName}} {{ contact.phone  }}</div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
             return {
                 newContact: {
                     name: '',
-                    lastName: '',
+                    lastName: '',   
                     phone: '',
                 },
                 contacts: [],
@@ -132,7 +132,7 @@
         methods: {
             addContact() {
                 if(this.newContact.name == '' || this.newContact.lastName == '' || this.newContact.phone == '') {
-                    alert('Must be more than two characters');
+                    alert('Must be more than two characters');    
                 } else {
                     this.contacts.push({
                     name: this.newContact.name, 
@@ -141,7 +141,7 @@
                     })
                     this.filteredContacts = this.contacts
                     this.searchByName = ''
-                    this.searchByLastName = ''
+                    this.searchByLastName = ''     
                     this.searchByPhone = ''
                     this.newContact = {
                         name: '',
@@ -155,15 +155,15 @@
                     let found = false;
                     if(this.searchByName.trim()) {
                         found |= contact.name.includes(this.searchByName)
-                    }
-                    if(this.searchByLastName.trim()) {
+                    }      
+                    if(this.searchByLastName.trim()) {    
                         found |= contact.lastName.includes(this.searchByLastName)
                     }
                     if(this.searchByPhone.trim()) {
-                        found |= contact.phone.includes(this.searchByPhone)
+                        found |= contact.phone.includes(this.searchByPhone)    
                     }
                     return found;
-                })
+                })   
                 console.log(this.filteredContacts);
             }
         }
