@@ -14,133 +14,70 @@
             background-image: linear-gradient(grey, black); 
             height: 980px;   
         } 
-        #title {
-            height: 100px;
-            font-size: 50px;
-            font-style: italic;    
-            text-align: center;
-        }
-    
-        #title-left {   
-            width: 35%;
-            height: 90px;
-            float: left;
-        }
-        #title-center {   
-            width: 30%;
-            height: 90px;
-            float: left;
-        }
-        #title-right {
-            width: 35%;  
-            height: 90px;
-            float: left;
-        }
-        #back {
-            width: 90%;
-            margin: 0 auto;
-        }
         #app {
-            margin-top: 5%;      
-                
+            width: 60%;
         }
-        h2 {   
-            font-size: 40px; 
-            background-image: linear-gradient(brown, black);   
-            border-radius: 30px;   
-            margin-bottom: 80px;
-            color: white;
+        #first-fields {
             
+        }
+        #second-fields {
+            
+        }
+        input {
+            float:left;
+            margin-top: 100px;
         }
         .inpClass {
-            
-            border-color: red;    
-            width: 500px;
-            height: 40px;
-            border-radius: 30px;
-        }   
+            width: 250px;
+        }
         .btnClass {
-            margin: 5%;
-            background-image: linear-gradient(brown, black);  
-            width: 150px;
-            height: 70px;   
-            border-radius: 30px;    
-            border-color: white;
-            color: white;
+            width: 100px;
+            margin-top: 100px;
+        }
+        .list-group-item {
+            width: 1100px;
+            margin-right: 20%;
+            margin-top: 10px;
         }
         label {
-            font-size: 25px;
-            color: white;
-        }
-        .search-wrapper-first {
             float: left;
-        }
-        .search-wrapper-second {    
-            float: right;
-        }
-        #all-contacts {
-            background-color: red;    
-            width: 600px;
+            margin-top: 10%;
+            margin-right: 1%;
+            margin-left: 1%;
         }
     </style>
 
 </head>
 <body>
-    <div id="title">
-        <div id="title-left">
-
-        </div>
-        <div id="title-center">
-            <h1>Phonebook</h1>
-        </div>
-        <div id="title-right">
-            
-        </div>
-    </div>
-    <div id="back">
+   <center>
         <div id="app">
-            <div class="search-wrapper-first">
-                <center>
-                    <h2>Enter your details</h2>
-                </center>
-                <label>Name:</label> 
+            <div id="first-fields">
                 <form  @submit.prevent="addContact">
-                    <p><input class="inpClass" v-model="newContact.name"></p>   
-                    <label>Last name:</label>
-                    <p><input class="inpClass" v-model="newContact.lastName"></p>   
-                    <label>Phone:</label>    
+                    <label>Name</label>
+                    <p><input class="inpClass" v-model="newContact.name"></p>  
+                    <label>Last name</label> 
+                    <p><input class="inpClass" v-model="newContact.lastName"></p> 
+                    <label>Phone</label>  
                     <p><input class="inpClass" v-model="newContact.phone"></p>   
-                    <center>
-                        <button class="btnClass" type="submit">Click me</button>   
-                    </center>
-                </form> 
+                    <button class="btnClass" type="submit">Click me</button>  
+                </form>
             </div>
-        <div class="search-wrapper-second">
-            <center>
-                <h2>Search contacts</h2>
-            </center>   
-            <label>Name:</label>
-            <p><input class="inpClass" v-model="searchByName" type="text"></p>
-            <label>Last name:</label>
-            <p><input class="inpClass" v-model="searchByLastName" type="text"></p>     
-            <label>Phone:</label>   
-            <p><input class="inpClass" v-model="searchByPhone" type="number"></p>          
-            <center>
-                <button class="btnClass" @click.prevent="searchContacts">Search</button>     
-            </center>
-        </div>
-        <center>
-            <div id="all-contacts">
-                <div id="contacts">
-                    <div class="list-group-item" v-for= "(contact, index) in filteredContacts" v-key= "index">       
-                        <div >{{ contact.name }} {{ contact.lastName}} {{ contact.phone  }}</div>    
-                    </div>
+            <div id="second-fields">
+                <label>Name</label>
+                <p><input class="inpClass" v-model="searchByName" type="text"></p>
+                <label>Last name</label>
+                <p><input class="inpClass" v-model="searchByLastName" type="text"></p>     
+                <label>Phone</label>
+                <p><input class="inpClass" v-model="searchByPhone" type="number"></p>          
+                <button class="btnClass" @click.prevent="searchContacts">Search</button> 
+            </div>        
+            <div id="contacts">
+                <div class="list-group-item" v-for= "(contact, index) in filteredContacts" v-key= "index">       
+                   <div>{{ contact.name }} {{ contact.lastName}} {{ contact.phone  }}</div>   
                 </div>
-            </div>    
-       </center>
-</div>
-
-
+            </div>  
+        </div> 
+   </center> 
 </body>
 </html>
 
