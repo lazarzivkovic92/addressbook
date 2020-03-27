@@ -48,21 +48,25 @@
             <p><input class="inpClass" v-model="newContact.phone"></p>   
             <button class="btnClass" type="submit">Create</button>  
         </form>
-        <div id="second-fields">
-            
-                 
-                      
-        </div> 
         <table class="table table-bordered">
             <thead>
                 <tr>
-                <th scope="col">#</th>
+                    <th scope="col">#</th>
+                    
+                    <th>Name</th>
+                    
+                    <th>Last Name</th>
+                    
+                    <th>Phone</th>
+                    </tr>
+                <tr>
+                <th scope="col"></th>
                 
-                <th><input class="inpClass" v-model="searchByName" type="text"></p></th>
+                <th><p><input @keyup="searchContacts" class="inpClass" v-model="searchByName" type="text"></p></th>
                 
-                <th><p><input class="inpClass" v-model="searchByLastName" type="text"></p></th>
+                <th><p><input @keyup="searchContacts" class="inpClass" v-model="searchByLastName" type="text"></p></th>
                 
-                <th><p><input class="inpClass" v-model="searchByPhone" type="number"></p></th>
+                <th><p><input @keyup="searchContacts" class="inpClass" v-model="searchByPhone" type="number"></p></th>
                 </tr>
             </thead>
             <tbody>
