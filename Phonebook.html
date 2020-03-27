@@ -19,52 +19,62 @@
         }
         input {
             float:left;
-            margin-top: 100px;
         }
         .inpClass {
             width: 250px;
         }
         .btnClass {
             width: 100px;
-            margin-top: 100px;
         }
         label {
             float: left;
-            margin-top: 110px;
             margin-right: 1%;
             margin-left: 1%;
+        }
+        .table-bordered {
+            width: 1000px;
         }
     </style>
 
 </head>
 <body>
-   
-        <div id="app">
-                <form  @submit.prevent="addContact">
-                    <label>Name</label>
-                    <p><input class="inpClass" v-model="newContact.name"></p>  
-                    <label>Last name</label> 
-                    <p><input class="inpClass" v-model="newContact.lastName"></p> 
-                    <label>Phone</label>  
-                    <p><input class="inpClass" v-model="newContact.phone"></p>   
-                    <button class="btnClass" type="submit">Create</button>  
-                </form>
-            <div id="second-fields">
-                <label>Name</label>
-                <p><input class="inpClass" v-model="searchByName" type="text"></p>
-                <label>Last name</label>
-                <p><input class="inpClass" v-model="searchByLastName" type="text"></p>     
-                <label>Phone</label>
-                <p><input class="inpClass" v-model="searchByPhone" type="number"></p>          
-                <button class="btnClass" @click.prevent="searchContacts">Search</button> 
-            </div>      
-                <div class="list-group-items" v-for= "(contact, index) in filteredContacts" v-key= "index"> 
-                        <div>{{ contact.name }}</div>
-                        <div>{{ contact.lastName }}</div>
-                        <div>{{ contact.phone  }}</div>       
-                </div> 
+    <div id="app">
+        <form  @submit.prevent="addContact">
+            <label>Name</label>
+            <p><input class="inpClass" v-model="newContact.name"></p>  
+            <label>Last name</label> 
+            <p><input class="inpClass" v-model="newContact.lastName"></p> 
+            <label>Phone</label>  
+            <p><input class="inpClass" v-model="newContact.phone"></p>   
+            <button class="btnClass" type="submit">Create</button>  
+        </form>
+        <div id="second-fields">
+            
+                 
+                      
         </div> 
-   
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                
+                <th><input class="inpClass" v-model="searchByName" type="text"></p></th>
+                
+                <th><p><input class="inpClass" v-model="searchByLastName" type="text"></p></th>
+                
+                <th><p><input class="inpClass" v-model="searchByPhone" type="number"></p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for= "(contact, index) in filteredContacts" v-key= "index">
+                <th scope="row">{{ index + 1 }}</th>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.lastName }}</td>
+                <td>{{ contact.phone  }}</td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>     
 </body>
 </html>
 
