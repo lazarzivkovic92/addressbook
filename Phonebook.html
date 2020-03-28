@@ -14,40 +14,36 @@
             background-image: linear-gradient(grey, black); 
             height: 980px;   
         } 
-        #app {
-            width: 60%;
-        }
-        input {
-            float:left;
-        }
-        .inpClass {
-            width: 250px;
-        }
-        .btnClass {
-            width: 100px;
-        }
-        label {
-            float: left;
-            margin-right: 1%;
-            margin-left: 1%;
+        #inp-first {
+            width: 1150px;
+            background-color: red;
         }
         .table-bordered {
-            width: 1000px;
+            width: 1150px;
+            text-align: center;
         }
     </style>
 
 </head>
 <body>
+   <center>
     <div id="app">
-        <form  @submit.prevent="addContact">
-            <label>Name</label>
-            <p><input class="inpClass" v-model="newContact.name"></p>  
-            <label>Last name</label> 
-            <p><input class="inpClass" v-model="newContact.lastName"></p> 
-            <label>Phone</label>  
-            <p><input class="inpClass" v-model="newContact.phone"></p>   
-            <button class="btnClass" type="submit">Create</button>  
-        </form>
+        <div id="inp-first">
+            <form @submit.prevent="addContact">
+                <div id="inp1">
+                    <p><input v-model="newContact.name"></p> 
+                </div>
+                <div id="inp2">
+                    <p><input v-model="newContact.lastName"></p> 
+                </div>  
+                <div id="inp3">
+                    <p><input v-model="newContact.phone"></p> 
+                </div>
+                <div id="btn">
+                    <button class="btnClass" type="submit">Create</button>
+                </div>  
+            </form>
+        </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -62,11 +58,11 @@
                 <tr>
                 <th scope="col"></th>
                 
-                <th><p><input @keyup="searchContacts" class="inpClass" v-model="searchByName" type="text"></p></th>
+                <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>
                 
-                <th><p><input @keyup="searchContacts" class="inpClass" v-model="searchByLastName" type="text"></p></th>
+                <th><p><input @keyup="searchContacts" v-model="searchByLastName" type="text"></p></th>
                 
-                <th><p><input @keyup="searchContacts" class="inpClass" v-model="searchByPhone" type="number"></p></th>
+                <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +74,8 @@
                 </tr>
             </tbody>
         </table> 
-    </div>     
+    </div> 
+   </center>     
 </body>
 </html>
 
