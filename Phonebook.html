@@ -15,12 +15,50 @@
             height: 980px;   
         } 
         #inp-first {
-            width: 1150px;
-            background-color: red;
+            margin-top: 50px;
+            
         }
         .table-bordered {
-            width: 1150px;
             text-align: center;
+            background-color: orange;
+        }
+        #inp1 {
+            float: left;
+            height: 70px;
+            margin-left: 20%;
+            margin-right: 7%;
+        }
+        #inp2 {
+            height: 70px;
+            float: left;
+            
+        }
+        #inp3 {
+            height: 70px;
+            float: left;
+            margin-left: 8%;
+        }
+        #inputs {
+            width: 100%;
+            background-color: orange;
+            height: 100px;
+            margin-bottom: 200px;
+            border-radius: 20px;
+            border-color: brown;
+        }
+        #inputs input {
+            width: 100%;
+            margin-left: 3px;
+        }
+        .btnClass {
+            width: 80px;
+            
+            margin-top: 32px;
+        }
+        .div{
+            width: 70%;
+            margin: 0 auto;
+            
         }
     </style>
 
@@ -28,22 +66,32 @@
 <body>
    <center>
     <div id="app">
-        <div id="inp-first">
+        <div id="inp-first" class="div">
             <form @submit.prevent="addContact">
-                <div id="inp1">
-                    <p><input v-model="newContact.name"></p> 
-                </div>
-                <div id="inp2">
-                    <p><input v-model="newContact.lastName"></p> 
-                </div>  
-                <div id="inp3">
-                    <p><input v-model="newContact.phone"></p> 
-                </div>
-                <div id="btn">
-                    <button class="btnClass" type="submit">Create</button>
-                </div>  
+                <div id="inputs">
+                    <div id="inp1">
+                        <label for="name">Name</label>
+                        <p><input v-model="newContact.name" id="name"></p> 
+                        
+                    </div>
+                    <div id="inp2">
+                        <label for="lastName">Last Name</label>
+                        <p><input v-model="newContact.lastName" id="lastName"></p>
+                         
+                    </div>  
+                    <div id="inp3">
+                        <label for="phone">Phone</label>
+                        <p><input v-model="newContact.phone" id="phone"></p> 
+                        
+                    </div>
+                    <div id="btn">
+                        <button class="btnClass" type="submit">Add</button>
+                    </div>
+                </div> 
+                
             </form>
         </div>
+        <div  class="div">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -74,6 +122,7 @@
                 </tr>
             </tbody>
         </table> 
+        </div>
     </div> 
    </center>     
 </body>
