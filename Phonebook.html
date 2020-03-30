@@ -23,13 +23,13 @@
         .table-bordered {
             text-align: center;
             background-color: orange;
-        }
+        }   
 
         #inp1 {
             float: left;
             height: 70px;
             margin-left: 20%;
-            margin-right: 7%;
+            margin-right: 7%;      
         }
 
         #inp2 {
@@ -49,7 +49,7 @@
             background-color: orange;
             height: 100px;   
             margin-bottom: 200px;   
-            border-radius: 20px;
+            border-radius: 20px;   
             
             border-color: brown;
         }   
@@ -84,15 +84,15 @@
                         
                     </div>
                     <div id="inp2">
-                        <label for="lastName">Last Name</label>
+                        <label for="lastName">Last Name</label>   
                         <p><input v-model="newContact.lastName" id="lastName"></p>
                          
-                    </div>  
+                    </div>     
                     <div id="inp3">
                         <label for="phone">Phone</label>
                         <p><input v-model="newContact.phone" id="phone"></p> 
                         
-                    </div>
+                    </div>   
                     <div id="btn">
                         <button class="btnClass" type="submit">Add</button>
                     </div>
@@ -107,7 +107,7 @@
                     <th scope="col">#</th>
                     
                     <th>Name</th>
-                    
+                         
                     <th>Last Name</th>
                     
                     <th>Phone</th>
@@ -115,16 +115,16 @@
                 <tr>
                 <th scope="col"></th>
                 
-                <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>
+                <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>   
                 
                 <th><p><input @keyup="searchContacts" v-model="searchByLastName" type="text"></p></th>
-                
-                <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>
+                   
+                <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>   
                 </tr>
             </thead>
             <tbody>
                 <tr v-for= "(contact, index) in filteredContacts" v-key= "index">
-                <th scope="row">{{ index + 1 }}</th>
+                <th scope="row">{{ index + 1 }}</th>   
                 <td>{{ contact.name }}</td>
                 <td>{{ contact.lastName }}</td>
                 <td>{{ contact.phone  }}</td>
@@ -137,7 +137,7 @@
 </body>
 </html>
 
-<script>
+<script>     
 
     new Vue({
         el: '#app',
@@ -159,7 +159,7 @@
             addContact() {
                 if(this.newContact.name == '' || this.newContact.lastName == '' || this.newContact.phone == '') {   
                     alert('Must be more than two characters');    
-                } else {
+                } else {    
                     this.contacts.push({
                     name: this.newContact.name,    
                     lastName: this.newContact.lastName,
@@ -172,7 +172,7 @@
                     this.newContact = {   
                         name: '',
                         lastName: '',
-                        phone: '',
+                        phone: '',    
                     }
                 }
             },
@@ -180,7 +180,7 @@
                 this.filteredContacts = this.contacts.filter(contact => {    
                     let found = false;
                     if(this.searchByName.trim()) {
-                        found |= contact.name.includes(this.searchByName)    
+                        found |= contact.name.includes(this.searchByName)       
                     }      
                     if(this.searchByLastName.trim()) {    
                         found |= contact.lastName.includes(this.searchByLastName)    
