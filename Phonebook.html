@@ -9,65 +9,42 @@
     <title>Phonebook</title>
     <style>   
         body {
-            background-image: linear-gradient(grey, black); 
-            height: 980px;   
-        }    
+            background-color: black;  
+        } 
         #inp-first {
-            margin-top: 50px;
-            
-        }
-
+            margin-top: 5%;
+        }   
         .table-bordered {
             text-align: center;   
-            background-color: orange;
-        }   
-
-        #inp1 {   
-            float: left;    
-            height: 70px;
-            margin-left: 20%;    
-            margin-right: 7%;      
-        }  
-  
-        #inp2 {
-            height: 70px;
-            float: left;
-            
-        }  
-
-        #inp3 {
-            height: 70px;      
-            float: left;   
-            margin-left: 8%;
-        }
-
+            background-image: linear-gradient(black, orange);
+            color: white;
+            margin-top: 12%;
+        }    
         #inputs {   
-            width: 100%;
-            background-color: orange;
-            height: 100px;   
-            margin-bottom: 200px;   
-            border-radius: 20px;   
-            
-            border-color: brown;
-        }   
-        #inputs input {
-            width: 100%;
-            margin-left: 3px;
+            width: 30%;
+            background-image: linear-gradient(black, orange);  
+            border-radius: 100px;
+            margin-left: 4%;
+        }  
+        #inputs label {
+            color: white;
+            font-weight: bold;
         }
-
+        input {
+            border-radius: 20px;
+        }
         .btnClass {
             width: 80px;
-            
-            margin-top: 32px;  
+            margin-bottom: 5%;  
+            border-radius: 20px;  
+            background-color: black;
+            color: white;
         }
-
         .div{
-            width: 70%;
-            margin: 0 auto;
-            
+            width: 100%;
+            margin: 0 auto;   
         }
     </style>
-
 </head>
 <body>
    <center>
@@ -75,26 +52,14 @@
         <div id="inp-first" class="div">
             <form @submit.prevent="addContact">
                 <div id="inputs">
-                    <div id="inp1">
-                        <label for="name">Name</label>
-                        <p><input v-model="newContact.name" id="name"></p> 
-                        
-                    </div>
-                    <div id="inp2">
-                        <label for="lastName">Last Name</label>   
-                        <p><input v-model="newContact.lastName" id="lastName"></p>
-                         
-                    </div>     
-                    <div id="inp3">
-                        <label for="phone">Phone</label>
-                        <p><input v-model="newContact.phone" id="phone"></p> 
-                        
-                    </div>   
-                    <div id="btn">
-                        <button class="btnClass" type="submit">Add</button>
-                    </div>
-                </div> 
-                
+                    <label style="margin-top: 3%;" for="name">Name</label>
+                    <p><input v-model="newContact.name" id="name"></p> 
+                    <label for="lastName">Last Name</label>   
+                    <p><input v-model="newContact.lastName" id="lastName"></p>                       
+                    <label for="phone">Phone</label>
+                    <p><input v-model="newContact.phone" id="phone"></p>                        
+                    <button class="btnClass" type="submit">Add</button>
+                </div>             
             </form>
         </div>
         <div  class="div">
@@ -102,20 +67,14 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    
-                    <th>Name</th>
-                         
+                    <th>Name</th>   
                     <th>Last Name</th>
-                    
                     <th>Phone</th>
                     </tr>
                 <tr>
                 <th scope="col"></th>
-                
                 <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>   
-                
                 <th><p><input @keyup="searchContacts" v-model="searchByLastName" type="text"></p></th>
-                   
                 <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>   
                 </tr>
             </thead>
@@ -133,9 +92,7 @@
    </center>     
 </body>
 </html>
-
 <script>     
-
     new Vue({
         el: '#app',
         data() {
@@ -191,5 +148,4 @@
             }   
         }
     })
-
 </script>
