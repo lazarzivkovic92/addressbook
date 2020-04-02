@@ -55,6 +55,7 @@
             border-radius: 20px;     
         }   
 
+
     </style>
 </head>
 <body>
@@ -84,16 +85,16 @@
                     </tr>
                 <tr>    
                 <th scope="col"></th>
-                <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>      
+                <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>          
                 <th><p><input @keyup="searchContacts" v-model="searchByLastName" type="text"></p></th>
-                <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>      
+                <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>          
                 </tr>
             </thead>
             <tbody>
                 <tr v-for= "(contact, index) in filteredContacts" v-key= "index">
                 <th scope="row">{{ index + 1 }}</th>   
                 <td>{{ contact.name }}</td>
-                <td>{{ contact.lastName }}</td>
+                <td>{{ contact.lastName }}</td>   
                 <td>{{ contact.phone  }}</td>
                 </tr>
             </tbody>
@@ -101,9 +102,11 @@
         </div>
     </div> 
    </center>     
+
+
 </body>
 </html>
-<script>     
+<script>        
     new Vue({
         el: '#app',
         data() {
