@@ -17,15 +17,15 @@
 
         .table-bordered {
             text-align: center;   
-            color: white;
-            margin-top: 10%;
+            color: white;   
+            margin-top: 10%;  
             width: 70%;
         }    
 
         #inputs {      
             width: 30%;
-            background-image: linear-gradient(black, orange);  
-            border-radius: 100px;   
+            background-image: linear-gradient(black, orange);      
+            border-radius: 100px;      
             margin-left: 4%;
         }  
 
@@ -35,57 +35,57 @@
         }
 
         input {
-            border-radius: 20px;
+            border-radius: 20px;   
             border-color: black;
         }
 
         .btnClass {
-            width: 80px;    
-            margin-bottom: 5%;  
-            border-radius: 20px;
-            border-color: black;     
+            width: 80px;       
+            margin-bottom: 5%;     
+            border-radius: 20px;   
+            border-color: black;        
             background-color: black;    
             color: white;   
         }
   
         .div{
-            width: 70%;
+            width: 70%;    
             margin: 0 auto;  
-            background-image: linear-gradient(black, orange);         
-            border-radius: 20px;     
+            background-image: linear-gradient(black, orange);             
+            border-radius: 20px;         
         }   
 
 
     </style>
 </head>
 <body>
-   <center>
+   <center>   
     <div id="app">   
         <div id="inp-first" class="div">
-            <form @submit.prevent="addContact">
+            <form @submit.prevent="addContact">       
                 <div id="inputs">
-                    <label style="margin-top: 3%;" for="name">Name</label>
-                    <p><input v-model="newContact.name" id="name"></p> 
-                    <label for="lastName">Last Name</label>       
+                    <label style="margin-top: 3%;" for="name">Name</label>    
+                    <p><input v-model="newContact.name" id="name"></p>     
+                    <label for="lastName">Last Name</label>         
                     <p><input v-model="newContact.lastName" id="lastName"></p>                       
-                    <label for="phone">Phone</label>    
-                    <p><input v-model="newContact.phone" id="phone"></p>                        
+                    <label for="phone">Phone</label>       
+                    <p><input v-model="newContact.phone" id="phone"></p>                            
                     <button class="btnClass" type="submit">Add</button>
                 </div>             
             </form>
-        </div>
+        </div>    
         <div  class="div">
         <table class="table table-bordered">
-            <thead>     
+            <thead>         
                 <tr>
                     <th scope="col">#</th>
-                    <th>Name</th>   
+                    <th>Name</th>      
                     <th>Last Name</th>
                     <th>Phone</th>
                     </tr>
                 <tr>    
                 <th scope="col"></th>
-                <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>          
+                <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>             
                 <th><p><input @keyup="searchContacts" v-model="searchByLastName" type="text"></p></th>
                 <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>          
                 </tr>
