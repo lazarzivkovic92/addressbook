@@ -11,41 +11,41 @@
         body {
             background-color: black;  
         }           
-        #inp-first {
+        #inp-first {   
             margin-top: 5%;         
         }   
         .table-bordered {
             text-align: center;        
             color: white;   
             margin-top: 10%;     
-            width: 70%;   
+            width: 70%;      
         }    
         #inputs {         
             width: 30%;    
             background-image: linear-gradient(black, orange);           
             border-radius: 100px;            
-            margin-left: 4%;         
+            margin-left: 4%;            
         }  
         #inputs label {
             color: white;
             font-weight: bold;     
         }  
         input {
-            border-radius: 20px;     
+            border-radius: 20px;        
             border-color: black;  
         }
         .btnClass {  
             width: 80px;            
             margin-bottom: 5%;       
-            border-radius: 20px;         
+            border-radius: 20px;           
             border-color: black;            
             background-color: black;            
             color: white;         
-        }
+        }  
         .div {
             width: 70%;    
             margin: 0 auto;     
-            background-image: linear-gradient(black, orange);               
+            background-image: linear-gradient(black, orange);                  
             border-radius: 20px;           
         }   
     </style>
@@ -56,7 +56,7 @@
         <div id="inp-first" class="div">
             <form @submit.prevent="addContact">          
                 <div id="inputs">
-                    <label style="margin-top: 3%;" for="name">Name</label>    
+                    <label style="margin-top: 3%;" for="name">Name</label>       
                     <p><input v-model="newContact.name" id="name"></p>     
                     <label for="lastName">Last Name</label>         
                     <p><input v-model="newContact.lastName" id="lastName"></p>                       
