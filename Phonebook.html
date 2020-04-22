@@ -17,7 +17,7 @@
         .table-bordered {       
             text-align: center;           
             color: white;         
-            margin-top: 10%;           
+            margin-top: 10%;             
             width: 70%;              
         }         
         #inputs {         
@@ -27,36 +27,32 @@
             margin-left: 4%;            
         }       
         #inputs label {     
-            color: white;      
+            color: white;         
             font-weight: bold;     
         }     
-        input {
+        input {   
             border-radius: 20px;              
             border-color: black;      
         }       
         .btnClass {           
             width: 80px;                      
-            margin-bottom: 5%;          
+            margin-bottom: 5%;             
             border-radius: 20px;                
             border-color: black;                  
-            background-color: black;                 
+            background-color: black;                     
             color: white;         
         }  
         .div {  
             width: 70%;       
-            margin: 0 auto;        
-              
-                 
+            margin: 0 auto;              
             background-image: linear-gradient(black, orange);                       
-            border-radius: 20px;                 
-            
-            
+            border-radius: 20px;                    
         }   
     </style>
 </head>
 <body>
    <center>   
-    <div id="app">       
+    <div id="app">          
             <form @submit.prevent="addContact">          
                 <div id="inputs">   
                     <label style="margin-top: 3%;" for="name">Name</label>          
@@ -67,7 +63,7 @@
                     <p><input v-model="newContact.phone" id="phone"></p>                            
                     <button class="btnClass" type="submit">Add</button>
                 </div>             
-            </form>
+            </form>    
         </div>    
         <div  class="div">
         <table class="table table-bordered">
