@@ -14,11 +14,11 @@
         #inp-first {       
             margin-top: 5%;               
         }   
-        .table-bordered {       
+        .table-bordered {          
             text-align: center;           
             color: white;         
             margin-top: 10%;             
-            width: 70%;              
+            width: 70%;                 
         }         
         #inputs {         
             width: 30%;    
@@ -29,7 +29,7 @@
         #inputs label {     
             color: white;         
             font-weight: bold;     
-        }     
+        }        
         input {   
             border-radius: 20px;              
             border-color: black;      
@@ -43,7 +43,7 @@
             color: white;         
         }  
         .div {  
-            width: 70%;       
+            width: 70%;          
             margin: 0 auto;              
             background-image: linear-gradient(black, orange);                       
             border-radius: 20px;                    
@@ -55,13 +55,13 @@
     <div id="app">          
             <form @submit.prevent="addContact">          
                 <div id="inputs">   
-                    <label style="margin-top: 3%;" for="name">Name</label>          
+                    <label style="margin-top: 3%;" for="name">Name</label>              
                     <p><input v-model="newContact.name" id="name"></p>       
                     <label for="lastName">Last Name</label>         
                     <p><input v-model="newContact.lastName" id="lastName"></p>                          
                     <label for="phone">Phone</label>       
                     <p><input v-model="newContact.phone" id="phone"></p>                            
-                    <button class="btnClass" type="submit">Add</button>
+                    <button class="btnClass" type="submit">Add</button>    
                 </div>             
             </form>    
         </div>    
@@ -73,7 +73,7 @@
                     <th>Name</th>      
                     <th>Last Name</th>
                     <th>Phone</th>
-                    </tr>
+                    </tr>   
                 <tr>    
                 <th scope="col"></th>
                 <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>             
@@ -84,7 +84,7 @@
             <tbody>
                 <tr v-for= "(contact, index) in filteredContacts" v-key= "index">
                 <th scope="row">{{ index + 1 }}</th>   
-                <td>{{ contact.name }}</td>
+                <td>{{ contact.name }}</td>   
                 <td>{{ contact.lastName }}</td>   
                 <td>{{ contact.phone  }}</td>
                 </tr>
@@ -92,9 +92,7 @@
         </table> 
         </div>
     </div> 
-   </center>     
-
-
+   </center>         
 </body>
 </html>
 <script>        
