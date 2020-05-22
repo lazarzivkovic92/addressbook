@@ -11,12 +11,12 @@
         body {
             background-color: black;       
         }             
-        #inp-first {          
+        #inp-first {             
             margin-top: 5%;               
         }      
         .table-bordered {             
             text-align: center;           
-            color: white;         
+            color: white;             
             margin-top: 10%;                
             width: 70%;                    
         }         
@@ -26,10 +26,8 @@
             border-radius: 100px;                   
             margin-left: 4%;            
         }          
-   
-        #inputs label {     
+        #inputs label {        
             color: white;            
-   
             font-weight: bold;       
         }           
         input {   
@@ -40,8 +38,6 @@
             width: 80px;                      
             margin-bottom: 5%;             
             border-radius: 20px;                    
-              
-                 
             border-color: black;                  
             background-color: black;                         
             color: white;             
@@ -50,54 +46,53 @@
             width: 70%;          
             margin: 0 auto;              
             background-image: linear-gradient(black, orange);                            
-               
             border-radius: 20px;                    
         }   
     </style>
 </head>
-<body>
-   <center>   
+<body>    
+   <center>      
     <div id="app">          
             <form @submit.prevent="addContact">          
                 <div id="inputs">   
                     <label style="margin-top: 3%;" for="name">Name</label>              
                     <p><input v-model="newContact.name" id="name"></p>       
-                    <label for="lastName">Last Name</label>         
+                    <label for="lastName">Last Name</label>             
                     <p><input v-model="newContact.lastName" id="lastName"></p>                          
-                    <label for="phone">Phone</label>       
+                    <label for="phone">Phone</label>           
                     <p><input v-model="newContact.phone" id="phone"></p>                            
                     <button class="btnClass" type="submit">Add</button>    
-                </div>             
+                </div>                 
             </form>    
         </div>    
         <div  class="div">
-        <table class="table table-bordered">
+        <table class="table table-bordered">   
             <thead>         
                 <tr>
                     <th scope="col">#</th>
                     <th>Name</th>      
                     <th>Last Name</th>
                     <th>Phone</th>
-                    </tr>   
+                </tr>
                 <tr>    
-                <th scope="col"></th>
-                <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>             
-                <th><p><input @keyup="searchContacts" v-model="searchByLastName" type="text"></p></th>
-                <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>          
+                    <th scope="col"></th>
+                    <th><p><input @keyup="searchContacts" v-model="searchByName" type="text"></p></th>             
+                    <th><p><input @keyup="searchContacts" v-model="searchByLastName" type="text"></p></th>
+                    <th><p><input @keyup="searchContacts" v-model="searchByPhone" type="number"></p></th>          
                 </tr>
             </thead>
             <tbody>
                 <tr v-for= "(contact, index) in filteredContacts" v-key= "index">
                 <th scope="row">{{ index + 1 }}</th>   
-                <td>{{ contact.name }}</td>   
-                <td>{{ contact.lastName }}</td>   
+                <td>{{ contact.name }}</td>      
+                <td>{{ contact.lastName }}</td>      
                 <td>{{ contact.phone  }}</td>
-                </tr>
+                </tr>   
             </tbody>
         </table> 
-        </div>
+        </div>    
     </div> 
-   </center>         
+   </center>             
 </body>
 </html>
 <script>        
@@ -107,13 +102,13 @@
             return {
                 newContact: {
                     name: '',
-                    lastName: '',   
+                    lastName: '',       
                     phone: '',   
-                },
+                },    
                 contacts: [],
                 searchByName: '',
                 searchByLastName: '',
-                searchByPhone: '',    
+                searchByPhone: '',        
                 filteredContacts: []
             }
         },
@@ -124,15 +119,15 @@
                 } else {    
                     this.contacts.push({
                     name: this.newContact.name,    
-                    lastName: this.newContact.lastName,
+                    lastName: this.newContact.lastName,   
                     phone: this.newContact.phone      
                     })
-                    this.filteredContacts = this.contacts
+                    this.filteredContacts = this.contacts    
                     this.searchByName = ''    
                     this.searchByLastName = ''     
                     this.searchByPhone = ''
                     this.newContact = {   
-                        name: '',
+                        name: '',     
                         lastName: '',
                         phone: '',    
                     }
@@ -140,18 +135,18 @@
             },
             searchContacts() {
                 this.filteredContacts = this.contacts.filter(contact => {    
-                    let found = false;
+                    let found = false;    
                     if(this.searchByName.trim()) {
                         found |= contact.name.includes(this.searchByName)       
                     }      
-                    if(this.searchByLastName.trim()) {    
-                        found |= contact.lastName.includes(this.searchByLastName)    
-                    }
+                    if(this.searchByLastName.trim()) {        
+                        found |= contact.lastName.includes(this.searchByLastName)       
+                    }     
                     if(this.searchByPhone.trim()) {    
                         found |= contact.phone.includes(this.searchByPhone)    
                     }    
                     return found;   
-                })   
+                })       
                 console.log(this.filteredContacts);
             }   
         }
